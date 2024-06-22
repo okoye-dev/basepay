@@ -1,11 +1,32 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Head from "next/head";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "BasePay",
   description: "Fiat to Crypto payments with ease",
 };
+
+const generalSans = localFont({
+  src: [
+    {
+      path: "./fonts/GeneralSans-Semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/GeneralSans-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/GeneralSans-Bold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-general-sans",
+});
 
 export default function RootLayout({
   children,
@@ -13,12 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <link
-        href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600,700&display=swap"
-        rel="stylesheet"
-      ></link>
-      <body>{children}</body>
+    <html lang="en" className={`${generalSans.variable}`}>
+      <body className="font-generalSans">{children}</body>
     </html>
   );
 }
