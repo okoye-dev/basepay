@@ -16,11 +16,15 @@ const generalSans = localFont({
       style: "normal",
     },
     {
+      path: "./fonts/GeneralSans-Medium.woff2",
+      weight: "500",
+      style: "medium",
+    },
+    {
       path: "./fonts/GeneralSans-Semibold.woff2",
       weight: "600",
       style: "normal",
     },
-
     {
       path: "./fonts/GeneralSans-Bold.woff2",
       weight: "800",
@@ -37,8 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${generalSans.variable}`}>
-      <body className="font-generalSans">
+      <body className="relative px-6 pt-4 font-generalSans leading-[1.25rem] text-black">
         <Navbar />
+        <span className="absolute left-0 top-16 my-4 flex h-[2px] w-full bg-border" />
         {children}
       </body>
     </html>

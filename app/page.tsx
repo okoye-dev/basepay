@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import base from "@/app/assets/base.svg";
+import Button from "@/components/Button";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="">
-      Welcome to base pay
-      <Image src={base} alt="basepay logo" width={50} height={50} />
-      <Button>Hello</Button>
+    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-[20px] border border-border bg-blue/5 p-10 text-2xl font-semibold">
+      Welcome!
+      <Link href={"/payment-pages"}>
+        <Button>View Payments page</Button>
+      </Link>
     </div>
   );
 }
