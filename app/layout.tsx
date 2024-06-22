@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "BasePay",
@@ -10,15 +11,16 @@ export const metadata: Metadata = {
 const generalSans = localFont({
   src: [
     {
-      path: "./fonts/GeneralSans-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
       path: "./fonts/GeneralSans-Regular.woff2",
       weight: "400",
       style: "normal",
     },
+    {
+      path: "./fonts/GeneralSans-Semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+
     {
       path: "./fonts/GeneralSans-Bold.woff2",
       weight: "800",
@@ -35,7 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${generalSans.variable}`}>
-      <body className="font-generalSans">{children}</body>
+      <body className="font-generalSans">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
