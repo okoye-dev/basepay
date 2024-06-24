@@ -23,25 +23,27 @@ const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
       : `https://${linkData.link}`;
 
   return (
-    <Link
-      href={"/payment-link-page"}
-      key={index}
-      className="flex w-full flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-black/10"
-    >
+    <div className="flex w-full flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-black/10">
       <span className="flex w-full items-center justify-start gap-2">
         {icons.map((icon, index) => (
-          <Image
-            key={index}
-            src={icon}
-            alt="icon"
-            className="h-10 w-10"
-            width={12}
-            height={12}
-          />
+          <span key={index}>
+            <Image
+              src={icon}
+              alt="icon"
+              className="h-10 w-10"
+              width={12}
+              height={12}
+            />
+          </span>
         ))}
       </span>
       <span className="my-1 h-[2px] w-full bg-border" />
-      <h1 className="pt-1 text-xl font-medium">{linkData.title}</h1>
+      <Link
+        href={"/payment-link-page"}
+        className="pt-1 text-xl font-medium duration-300 hover:text-blue"
+      >
+        {linkData.title}
+      </Link>
       <Link
         href={formattedLink}
         className="block w-full overflow-hidden text-ellipsis whitespace-nowrap pb-1 text-sm font-medium text-blue hover:underline"
@@ -57,7 +59,7 @@ const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
           {linkData.clicks} Clicks
         </p>
       </div>
-    </Link>
+    </div>
   );
 };
 
