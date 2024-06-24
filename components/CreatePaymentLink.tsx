@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Button from "./Button";
 import Image from "next/image";
 import add from "@/app/assets/add.svg";
+import cancel from "@/app/assets/cancel.svg";
 
 import {
   AlertDialog,
@@ -41,10 +42,14 @@ const CreatePaymentLink: FC<IProps> = (props) => {
           </span>
         </AlertDialogTrigger>
         <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Create new payment page</AlertDialogTitle>
-          </AlertDialogHeader>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <div className="flex w-full justify-between gap-3">
+            <AlertDialogCancel>
+              <Image src={cancel} alt="cancel" width={28} height={28} />
+            </AlertDialogCancel>
+            <AlertDialogHeader className="w-full">
+              <AlertDialogTitle>Create new payment page</AlertDialogTitle>
+            </AlertDialogHeader>
+          </div>
           <CreateNewPaymentForm />
         </AlertDialogContent>
       </AlertDialog>
