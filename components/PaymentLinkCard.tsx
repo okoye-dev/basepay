@@ -26,7 +26,7 @@ const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
     <Link
       href={"/payment-link-page"}
       key={index}
-      className="flex w-full flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3"
+      className="flex w-full flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-black/10"
     >
       <span className="flex w-full items-center justify-start gap-2">
         {icons.map((icon, index) => (
