@@ -1,3 +1,4 @@
+import CreatePaymentLink from "@/components/CreatePaymentLink";
 import React, { FC, ReactNode } from "react";
 
 interface IProps {
@@ -7,7 +8,11 @@ interface IProps {
 const Layout: FC<IProps> = ({ children }: IProps) => {
   return (
     <div>
-      <h1 className="mt-11 mb-8 text-3xl font-semibold"> Payment pages</h1>
+      <div className="mt-7 flex flex-col gap-6 text-3xl font-semibold">
+        Payment pages
+        <CreatePaymentLink />
+        Current pages
+      </div>
       {children}
     </div>
   );

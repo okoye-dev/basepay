@@ -41,10 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${generalSans.variable}`}>
-      <body className="relative px-6 pt-4 font-generalSans leading-[1.25rem] text-black">
+      <body className="relative font-generalSans leading-[1.25rem] tracking-tighter text-black">
         <Navbar />
-        <span className="absolute left-0 top-16 my-4 flex h-[2px] w-full bg-border" />
-        {children}
+        <div className="px-6">{children}</div>
       </body>
     </html>
   );
