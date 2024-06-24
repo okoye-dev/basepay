@@ -14,10 +14,11 @@ const Layout: FC<IProps> = ({ children }: IProps) => {
         <Image src={back} alt="back" width={12} height={12} />
         <h1>Hackathon Payment</h1>
       </div>
-      <div className="flex flex-col">
-        <h1 className="py-2">Page Link</h1>
+      <div className="flex flex-col pb-2">
+        <h1 className="pb-4 pt-2">Page Link</h1>
         <PageLink />
       </div>
+      <h1 className="py-4">Page Details</h1>
       {children}
     </div>
   );
