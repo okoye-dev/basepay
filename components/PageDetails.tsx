@@ -28,7 +28,7 @@ const PageDetails: FC<IProps> = (props) => {
   };
 
   return (
-    <div className="flex flex-col gap-3 rounded-3xl border border-border px-4 py-6 text-base">
+    <div className="flex flex-col gap-3 rounded-3xl border-2 border-border px-4 py-6 text-base">
       <span className="flex items-center justify-between">
         <div className="font-medium text-textGray">Status</div>
         <span className="flex items-center justify-center gap-2">
