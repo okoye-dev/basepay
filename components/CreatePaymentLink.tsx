@@ -45,7 +45,7 @@ const CreatePaymentLink: FC<IProps> = (props) => {
         <AlertDialogContent>
           <div className="flex w-full justify-between gap-3">
             <AlertDialogCancel>
-              <Image src={cancel} alt="cancel" width={28} height={28} />
+              <Image src={cancel} alt="cancel" width={32} height={32} />
             </AlertDialogCancel>
             <AlertDialogHeader className="w-full">
               <AlertDialogTitle>Create new payment page</AlertDialogTitle>
