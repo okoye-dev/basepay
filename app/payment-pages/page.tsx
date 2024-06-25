@@ -1,7 +1,7 @@
 import PaymentLinkCard from "@/components/PaymentLinkCard";
 import React, { FC } from "react";
-import { LinkData } from "../types/types";
-import { useLinkData } from "../hooks/useLinkData";
+import { LinkData } from "../../types/types";
+import { useLinkData } from "../../hooks/useLinkData";
 
 interface IProps {}
 

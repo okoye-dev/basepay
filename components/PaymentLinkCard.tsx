@@ -5,7 +5,7 @@ import copy from "@/app/assets/copy.svg";
 import edit from "@/app/assets/edit.svg";
 import ellipses from "@/app/assets/ellipses.svg";
 import visitLink from "@/app/assets/visit-link.svg";
-import { LinkData } from "@/app/types/types";
+import { LinkData } from "@/types/types";
 import Link from "next/link";
 
 interface IProps {

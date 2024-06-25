@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${generalSans.variable}`}>
-      <body className="relative font-generalSans leading-[1.25rem] tracking-tight text-black">
+      <body className="relative overflow-x-hidden font-generalSans leading-[1.25rem] tracking-tight text-black">
         <Navbar />
         <div className="px-6">{children}</div>
       </body>

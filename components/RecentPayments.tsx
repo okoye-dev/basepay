@@ -4,7 +4,7 @@ import back from "@/app/assets/back-blue.svg";
 import forward from "@/app/assets/forward-blue.svg";
 import Image from "next/image";
 import ModalButton from "./ModalButton";
-import { useRecentPayments } from "@/app/hooks/useRecentPayments";
+import { useRecentPayments } from "@/hooks/useRecentPayments";
 
 interface IProps {}
 
@@ -38,7 +38,7 @@ const RecentPayments: FC<IProps> = ({}) => {
       ))}
       <span className="flex items-center justify-center gap-2">
         <Image src={back} alt="back" width={28} height={28} />
-        <span className="flex h-[30px] w-[30px] text-base items-center justify-center rounded-full border border-blue">
+        <span className="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-blue text-base">
           1
         </span>
         <Image src={forward} alt="forward" width={28} height={28} />
