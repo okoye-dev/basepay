@@ -8,7 +8,7 @@ interface IProps {}
 const PaymentLinkPage: FC<IProps> = (props) => {
   return (
     <div className="flex flex-col gap-[20px] lg:flex-row">
-      <section className="flex flex-col gap-4 lg:max-w-[50%] --mr-4">
+      <section className="flex flex-col gap-4 lg:max-w-[50%]">
         <PageLink />
         <PageDetails />
       </section>

@@ -25,8 +25,8 @@ const Navbar: FC<IProps> = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 mb-8 w-full bg-background px-6 py-4">
-        <div className="flex w-full items-center justify-between">
+      <nav className="sticky top-0 z-50 mb-8 w-full bg-background px-6 py-4 md:pt-0">
+        <div className="flex w-full items-center justify-between md:hidden">
           <Link href="/">
             <Image src={logo} alt="logo" width={150} height={40} />
           </Link>
@@ -65,7 +65,8 @@ const Navbar: FC<IProps> = () => {
           </span>
         </div>
 
-        <span className="absolute left-0 top-16 my-4 flex h-[2px] w-full bg-border" />
+        <span className="absolute left-0 top-16 my-4 flex h-[2px] w-full bg-border md:hidden" />
+
         <section className="relative flex">
           <SideNav navOpen={navOpen} toggleNav={toggleNav} />
         </section>

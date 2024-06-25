@@ -9,8 +9,10 @@ import paymentBlue from "@/app/assets/nav-links/payment-blue.svg";
 import transactionsBlue from "@/app/assets/nav-links/transactions-blue.svg";
 import apiBlue from "@/app/assets/nav-links/api-blue.svg";
 import webhookBlue from "@/app/assets/nav-links/webhook-blue.svg";
+import logo from "@/app/assets/logo.png";
 import NavItem from "./NavItem";
 import Link from "next/link";
+import Image from "next/image";
 
 interface IProps {
   navOpen: boolean;
@@ -47,8 +49,13 @@ const SideNav: FC<IProps> = ({ navOpen, toggleNav }: IProps) => {
 
   return (
     <div
-      className={`fixed left-0 top-[81px] h-screen border bg-white px-6 duration-300 ${navOpen ? "translate-x-0" : "-translate-x-full md:-translate-x-0"} pt-6 shadow-lg`}
+      className={`fixed left-0 top-[81px] h-screen border bg-white px-6 pt-6 delay-300 duration-300 md:top-0 md:pt-0 ${navOpen ? "translate-x-0" : "-translate-x-full md:-translate-x-0"} shadow-lg`}
     >
+      <div className="my-6 hidden flex-col items-center justify-center gap-6 md:flex">
+        <Image src={logo} alt="logo" width={160} height={32} />
+        <span className="flex h-[2px] w-full bg-border"></span>
+      </div>
+
       <Button hasAddIcon={true} className="px-8 py-4">
         New payment page
       </Button>
