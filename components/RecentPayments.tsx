@@ -12,7 +12,7 @@ const RecentPayments: FC<IProps> = ({}) => {
   const dummmyPayments = useRecentPayments();
 
   return (
-    <div className="my-8 rounded-3xl border-2 border-border px-5 py-6 font-semibold">
+    <div className="mb-8 w-full overflow-hidden rounded-3xl border-2 border-border px-5 py-6 font-semibold lg:min-w-[20rem]">
       Recent Payments
       {dummmyPayments.map((payment, index) => (
         <div

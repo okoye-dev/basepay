@@ -28,56 +28,63 @@ const PageDetails: FC<IProps> = (props) => {
   };
 
   return (
-    <div className="flex flex-col gap-3 rounded-3xl border-2 border-border px-4 py-6 text-base">
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Status</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.status}
-          <Image src={active} alt="active" width={24} height={24} />
+    <section className="flex flex-col">
+      <h1 className="py-4">Page Details</h1>
+      <div className="flex h-fit flex-col gap-3 rounded-3xl border-2 border-border px-4 py-6 text-base md:gap-5 md:px-8">
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Status</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.status}
+            <Image src={active} alt="active" width={24} height={24} />
+          </span>
         </span>
-      </span>
 
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Page name</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.pageName}
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Page name</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.pageName}
+          </span>
         </span>
-      </span>
 
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Currency</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.currency}
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Currency</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.currency}
+          </span>
         </span>
-      </span>
 
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Page amount</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.pageAmount}
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Page amount</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.pageAmount}
+          </span>
         </span>
-      </span>
 
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Created</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.created}
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Created</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.created}
+          </span>
         </span>
-      </span>
 
-      <span className="flex items-center justify-between">
-        <div className="font-medium text-textGray">Description</div>
-        <span className="flex items-center justify-center gap-2">
-          {dummyDetails.description}
+        <span className="flex items-center justify-between">
+          <div className="font-medium text-textGray">Description</div>
+          <span className="flex items-center justify-center gap-2">
+            {dummyDetails.description}
+          </span>
         </span>
-      </span>
 
-      <div className="flex items-center justify-center gap-3 pt-3">
-        <ModalButton icon={share} text="Share" />
-        <ModalButton icon={edit} text="Edit" />
-        <ModalButton icon={del} text="Delete" className="bg-red/10 text-red" />
+        <div className="flex items-center justify-center gap-3 pt-3">
+          <ModalButton icon={share} text="Share" />
+          <ModalButton icon={edit} text="Edit" />
+          <ModalButton
+            icon={del}
+            text="Delete"
+            className="bg-red/10 text-red"
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

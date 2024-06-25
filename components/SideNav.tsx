@@ -10,10 +10,14 @@ import transactionsBlue from "@/app/assets/nav-links/transactions-blue.svg";
 import apiBlue from "@/app/assets/nav-links/api-blue.svg";
 import webhookBlue from "@/app/assets/nav-links/webhook-blue.svg";
 import NavItem from "./NavItem";
+import Link from "next/link";
 
-interface IProps {}
+interface IProps {
+  navOpen: boolean;
+  toggleNav: () => void;
+}
 
-const SideNav: FC<IProps> = (props) => {
+const SideNav: FC<IProps> = ({ navOpen, toggleNav }: IProps) => {
   const navItems = [
     {
       title: "Payment pages",
@@ -27,7 +31,7 @@ const SideNav: FC<IProps> = (props) => {
       img: transactions,
       imgBlue: transactionsBlue,
     },
-    { title: "API Keys", page: "api-keys", img: api, imgBlue: apiBlue },
+    { title: "API Key", page: "api-key", img: api, imgBlue: apiBlue },
     {
       title: "Webhook URL",
       page: "webhook-url",
@@ -42,7 +46,9 @@ const SideNav: FC<IProps> = (props) => {
   };
 
   return (
-    <div className="fixed left-0 top-20 h-screen bg-white px-6 pt-6 shadow-lg">
+    <div
+      className={`fixed left-0 top-[81px] h-screen border bg-white px-6 duration-300 ${navOpen ? "translate-x-0" : "-translate-x-full md:-translate-x-0"} pt-6 shadow-lg`}
+    >
       <Button hasAddIcon={true} className="px-8 py-4">
         New payment page
       </Button>
@@ -56,15 +62,20 @@ const SideNav: FC<IProps> = (props) => {
           {navItems.map((item, index) => (
             <li
               key={index}
-              onClick={() => makeActive(index)}
+              onClick={() => {
+                makeActive(index);
+                toggleNav();
+              }}
               className="cursor-pointer"
             >
-              <NavItem
-                active={activeNav === index}
-                regular={item.img}
-                blue={item.imgBlue}
-                text={item.title}
-              />
+              <Link href={`/${item.page}`}>
+                <NavItem
+                  active={activeNav === index}
+                  regular={item.img}
+                  blue={item.imgBlue}
+                  text={item.title}
+                />
+              </Link>
             </li>
           ))}
         </ul>

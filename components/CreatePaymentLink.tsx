@@ -16,6 +16,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import CreateNewPaymentForm from "./payment-pages/CreateNewPaymentForm";
+import CreatePaymentLinkForm from "./CreatePaymentLinkForm";
 
 interface IProps {}
 
@@ -50,7 +51,7 @@ const CreatePaymentLink: FC<IProps> = (props) => {
               <AlertDialogTitle>Create new payment page</AlertDialogTitle>
             </AlertDialogHeader>
           </div>
-          <CreateNewPaymentForm />
+          <CreatePaymentLinkForm />
         </AlertDialogContent>
       </AlertDialog>
     </div>

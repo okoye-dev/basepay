@@ -9,13 +9,16 @@ interface IProps {}
 const PageLink: FC<IProps> = (props) => {
   const dummyLink = "www.basepay.com/DefiHacks/hackatho-82663n268g2";
   return (
-    <div className="flex flex-col gap-3 rounded-3xl border-2 border-border px-4 py-4 text-sm font-semibold">
-      <CopyLink link={dummyLink} />
-      <div className="flex items-center gap-3">
-        <ModalButton icon={share} text="Share" />
-        <ModalButton icon={visitLink} text="Visit Link" />
+    <section>
+      <h1 className="pb-4 pt-2">Page Link</h1>
+      <div className="flex flex-col gap-3 rounded-3xl border-2 border-border px-4 py-4 text-sm font-semibold">
+        <CopyLink link={dummyLink} />
+        <div className="flex items-center gap-3">
+          <ModalButton icon={share} text="Share" />
+          <ModalButton icon={visitLink} text="Visit Link" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
