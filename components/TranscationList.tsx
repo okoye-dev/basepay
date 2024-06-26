@@ -28,11 +28,11 @@ export default function Transactions() {
       <table className="min-w-full bg-white text-center text-sm font-light">
         <thead className="rounded-full bg-[#F7F7F7] text-[#646464]">
           <tr>
-            <th className="border-b px-4 py-2">S/N</th>
-            <th className="border-b px-4 py-2">Reference</th>
-            <th className="border-b px-4 py-2">Amount</th>
-            <th className="border-b px-4 py-2">Status</th>
-            <th className="border-b px-4 py-2">Date</th>
+            <th className=" px-4 py-2 rounded-tl-full rounded-bl-full">S/N</th>
+            <th className=" px-4 py-2">Reference</th>
+            <th className=" px-4 py-2">Amount</th>
+            <th className=" px-4 py-2">Status</th>
+            <th className=" px-4 py-2 rounded-tr-full rounded-br-full">Date</th>
           </tr>
         </thead>
         <tbody>
