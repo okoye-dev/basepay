@@ -115,16 +115,11 @@ const WebHook = () => {
         />
         <button
           onClick={handleSubmit}
-          className="px-16 py-2 bg-blue text-white rounded-full text-sm "
+          className="w-full py-4 bg-blue text-white rounded-full text-sm "
         >
           Add webhook
         </button>
-        <button
-          onClick={closeModal}
-          className="mt-2 text-blue"
-        >
-          Cancel
-        </button>
+        
       </Modal>
     </div>
   );
