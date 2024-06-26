@@ -24,7 +24,7 @@ export default function Transactions() {
   ];
 
   return (
-    <div className="rounded-2xl border p-8">
+    <div className="rounded-2xl border p-8 mt-8">
       <table className="min-w-full bg-white text-center text-sm font-light">
         <thead className="rounded-full bg-[#F7F7F7] text-[#646464]">
           <tr>

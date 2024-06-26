@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 interface IProps {}
 
 const Transactions: FC<IProps> = (props) => {
-  return <div className="text-black w-full">
+  return <div className="text-black w-full px-10">
     <Header name={"Transactions"}/>
     <Transcations/>
   </div>;
