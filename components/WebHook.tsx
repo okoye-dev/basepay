@@ -102,8 +102,8 @@ const WebHook = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Add Webhook URL"
-        className="flex flex-col items-center justify-center bg-white rounded-lg p-4"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+        className="flex flex-col items-center justify-center bg-white rounded-lg p-10 translate-x-50 w-2/5 "
+        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center pl-56"
       >
         <h2 className="text-xl font-semibold mb-4">Add a webhook URL</h2>
         <input
@@ -111,11 +111,11 @@ const WebHook = () => {
           placeholder="Enter URL"
           value={webHookURL}
           onChange={handleURLChange}
-          className="w-full p-2 mb-4 border rounded"
+          className="w-full py-4 px-4 mb-4 border rounded-full"
         />
         <button
           onClick={handleSubmit}
-          className="px-4 py-2 bg-blue text-white rounded-full"
+          className="px-16 py-2 bg-blue text-white rounded-full text-sm "
         >
           Add webhook
         </button>
