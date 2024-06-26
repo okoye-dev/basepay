@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 interface IProps {}
 
 const WebhookURL: FC<IProps> = (props) => {
-  return (<div className="">
+  return (<div className="w-full px-10">
     <Header name={"Webhook URL"}/>
     <Webhook/>
   </div>);
