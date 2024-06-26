@@ -11,10 +11,7 @@ const Transactions: FC<IProps> = (props) => {
   return <div className="text-black w-full px-10 pb-20">
     <Header name={"Transactions"}/>
     <Transcations/>
-    <div className="flex justify-center">
-      <Image src={Back} alt=""/>
-      <Image src={Forward} alt=""/>
-    </div>
+    
   </div>;
 };
 
