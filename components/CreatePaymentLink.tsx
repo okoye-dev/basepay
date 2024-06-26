@@ -1,23 +1,19 @@
 "use client";
 import React, { FC, useState } from "react";
-import Button from "./Button";
 import Image from "next/image";
 import add from "@/app/assets/add.svg";
 import cancel from "@/app/assets/cancel.svg";
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import CreateNewPaymentForm from "./payment-pages/CreateNewPaymentForm";
 import CreatePaymentLinkForm from "./CreatePaymentLinkForm";
+import { AlertDialogDescription } from "@radix-ui/react-alert-dialog";
 
 interface IProps {}
 
@@ -51,7 +47,7 @@ const CreatePaymentLink: FC<IProps> = (props) => {
             Create a new page
           </span>
         </AlertDialogTrigger>
-        <AlertDialogContent description="Create new payment page">
+        <AlertDialogContent>
           <div className="flex w-full justify-between gap-3">
             <AlertDialogCancel asChild>
               <span onClick={handleDialogClose}>
@@ -59,7 +55,11 @@ const CreatePaymentLink: FC<IProps> = (props) => {
               </span>
             </AlertDialogCancel>
             <AlertDialogHeader className="w-full">
-              <AlertDialogTitle>Create new payment page</AlertDialogTitle>
+              <AlertDialogTitle>
+                <AlertDialogDescription>
+                  Create new payment page
+                </AlertDialogDescription>
+              </AlertDialogTitle>
             </AlertDialogHeader>
           </div>
           <CreatePaymentLinkForm onClose={handleDialogClose} />

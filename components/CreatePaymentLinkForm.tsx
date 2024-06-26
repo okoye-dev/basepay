@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
 import Input from "./Input"; // Adjust the path as necessary
+import PaymentLinkCreated from "./PaymentLinkCreated";
 
 interface IProps {
   onClose: () => void;
@@ -23,10 +24,18 @@ const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
     }));
   };
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleDialogOpen = () => setIsDialogOpen(true);
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+    onClose();
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
-    onClose(); // Close the dialog on form submission
+    handleDialogOpen();
   };
 
   return (
@@ -62,6 +71,12 @@ const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
       >
         Create Link
       </button>
+
+      <PaymentLinkCreated
+        isDialogOpen={isDialogOpen}
+        handleDialogClose={handleDialogClose}
+        setIsDialogOpen={setIsDialogOpen}
+      />
     </form>
   );
 };
