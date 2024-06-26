@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+"use client";
+import React, { FC, useState } from "react";
 import Button from "./Button";
 import Image from "next/image";
 import add from "@/app/assets/add.svg";
@@ -21,6 +22,11 @@ import CreatePaymentLinkForm from "./CreatePaymentLinkForm";
 interface IProps {}
 
 const CreatePaymentLink: FC<IProps> = (props) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleDialogOpen = () => setIsDialogOpen(true);
+  const handleDialogClose = () => setIsDialogOpen(false);
+
   return (
     <div className="flex w-full flex-col items-center justify-center gap-4 rounded-[20px] border border-border bg-blue/5 py-10 text-base">
       <p className="text-center font-medium">
@@ -29,9 +35,12 @@ const CreatePaymentLink: FC<IProps> = (props) => {
         payments with base
       </p>
 
-      <AlertDialog>
-        <AlertDialogTrigger>
-          <span className="flex cursor-pointer items-center justify-center gap-2 text-balance rounded-full bg-blue px-6 py-3 text-base font-medium text-white">
+      <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <AlertDialogTrigger asChild>
+          <span
+            onClick={handleDialogOpen}
+            className="flex cursor-pointer items-center justify-center gap-2 text-balance rounded-full bg-blue px-6 py-3 text-base font-medium text-white"
+          >
             <Image
               src={add}
               alt="create new"
@@ -42,16 +51,18 @@ const CreatePaymentLink: FC<IProps> = (props) => {
             Create a new page
           </span>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent description="Create new payment page">
           <div className="flex w-full justify-between gap-3">
-            <AlertDialogCancel>
-              <Image src={cancel} alt="cancel" width={32} height={32} />
+            <AlertDialogCancel asChild>
+              <span onClick={handleDialogClose}>
+                <Image src={cancel} alt="cancel" width={32} height={32} />
+              </span>
             </AlertDialogCancel>
             <AlertDialogHeader className="w-full">
               <AlertDialogTitle>Create new payment page</AlertDialogTitle>
             </AlertDialogHeader>
           </div>
-          <CreatePaymentLinkForm />
+          <CreatePaymentLinkForm onClose={handleDialogClose} />
         </AlertDialogContent>
       </AlertDialog>
     </div>

@@ -2,9 +2,11 @@
 import React, { FC, useState } from "react";
 import Input from "./Input"; // Adjust the path as necessary
 
-interface IProps {}
+interface IProps {
+  onClose: () => void;
+}
 
-const CreatePaymentLinkForm: FC<IProps> = (props) => {
+const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     pageName: "",
     pageDescription: "",
@@ -24,6 +26,7 @@ const CreatePaymentLinkForm: FC<IProps> = (props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
+    onClose(); // Close the dialog on form submission
   };
 
   return (
@@ -55,7 +58,7 @@ const CreatePaymentLinkForm: FC<IProps> = (props) => {
 
       <button
         type="submit"
-        className="flex w-full items-center justify-center rounded-full bg-blue py-3 text-white my-3"
+        className="my-3 flex w-full items-center justify-center rounded-full bg-blue py-3 text-white"
       >
         Create Link
       </button>
