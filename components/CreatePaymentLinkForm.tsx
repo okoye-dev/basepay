@@ -1,10 +1,13 @@
 "use client";
 import React, { FC, useState } from "react";
 import Input from "./Input"; // Adjust the path as necessary
+import PaymentLinkCreated from "./PaymentLinkCreated";
 
-interface IProps {}
+interface IProps {
+  onClose: () => void;
+}
 
-const CreatePaymentLinkForm: FC<IProps> = (props) => {
+const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     pageName: "",
     pageDescription: "",
@@ -21,9 +24,18 @@ const CreatePaymentLinkForm: FC<IProps> = (props) => {
     }));
   };
 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleDialogOpen = () => setIsDialogOpen(true);
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+    onClose();
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
+    handleDialogOpen();
   };
 
   return (
@@ -55,10 +67,16 @@ const CreatePaymentLinkForm: FC<IProps> = (props) => {
 
       <button
         type="submit"
-        className="flex w-full items-center justify-center rounded-full bg-blue py-3 text-white my-3"
+        className="my-3 flex w-full items-center justify-center rounded-full bg-blue py-3 text-white"
       >
         Create Link
       </button>
+
+      <PaymentLinkCreated
+        isDialogOpen={isDialogOpen}
+        handleDialogClose={handleDialogClose}
+        setIsDialogOpen={setIsDialogOpen}
+      />
     </form>
   );
 };

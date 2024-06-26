@@ -6,13 +6,20 @@ interface IProps {
   icon: string;
   text: string;
   className?: string;
+  onClick?: () => void;
 }
 
-const ModalButton: FC<IProps> = ({ className, icon, text }: IProps) => {
+const ModalButton: FC<IProps> = ({
+  className,
+  icon,
+  text,
+  onClick,
+}: IProps) => {
   return (
     <p
+      onClick={onClick}
       className={twMerge(
-        "flex items-center justify-center rounded-full bg-gray px-4 py-2 font-medium text-black",
+        "flex cursor-pointer items-center justify-center rounded-full bg-gray px-4 py-2 font-medium text-black",
         className,
       )}
     >
