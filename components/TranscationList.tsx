@@ -51,6 +51,18 @@ export default function Transactions() {
       status: "Pending",
       date: "12/02/2024",
     },
+    {
+      emailAddress: "mulizanni99@gmail.com",
+      amount: 3000,
+      status: "Pending",
+      date: "12/02/2024",
+    },
+    {
+      emailAddress: "mulizanni99@gmail.com",
+      amount: 3000,
+      status: "Pending",
+      date: "12/02/2024",
+    },
   ];
 
   return (
@@ -58,14 +70,14 @@ export default function Transactions() {
       <table className="min-w-full bg-white text-center text-sm font-light">
         <thead className="rounded-full bg-[#F7F7F7] text-[#646464]">
           <tr>
-            <th className="rounded-bl-full rounded-tl-full px-4 py-2">S/N</th>
+            <th className="rounded-bl-full rounded-tl-full px-4 py-2">#</th>
             <th className="px-4 py-2">Reference</th>
             <th className="px-4 py-2">Amount</th>
             <th className="px-4 py-2">Status</th>
             <th className="rounded-br-full rounded-tr-full px-4 py-2">Date</th>
           </tr>
         </thead>
-        <tbody className="min-w-full bg-white text-center text-sm font-bold">
+        <tbody className="min-w-full bg-white text-center text-sm font-bold overflow-y-scroll">
           {transactionData.map((transaction, index) => (
             <tr key={index}>
               <td className="border-b px-4 py-2">{index + 1}</td>
@@ -91,6 +103,7 @@ export default function Transactions() {
           ))}
         </tbody>
       </table>
+      <div></div>
     </div>
   );
 }
