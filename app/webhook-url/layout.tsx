@@ -7,7 +7,7 @@ interface IProps {
 const Layout: FC<IProps> = ({ children }: IProps) => {
   return (
     <div className="flex w-full flex-col items-center text-2xl font-semibold">
-      Webhook URL {children}
+      {children}
     </div>
   );
 };
