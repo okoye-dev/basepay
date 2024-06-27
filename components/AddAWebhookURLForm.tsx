@@ -22,9 +22,39 @@ const AddAWebhookURLForm: FC<IProps> = ({ onClose }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // post to api
+  const addWebhookUrl = async () => {
+    try {
+      // already authenticated username
+      const username =
+        "e4c0b812dd5bb5efbfbacb34322fa7b29d3723031f2ffc065067a3b3c2fd3a8f";
+      const password = "your-password";
+      const basicAuth = btoa(`${username}:${password}`);
+
+      const res = await fetch("http://localhost:3000/api/user/addWebhookUrl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${basicAuth}`,
+        },
+        body: JSON.stringify({ webhookUrl: formData.webhookUrl }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const responseData = await res.json();
+
+      console.log("res: ", responseData);
+    } catch (err) {
+      console.error("error posting: ", err);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(formData, "Posting now...");
+    await addWebhookUrl();
     onClose();
   };
 
@@ -33,7 +63,7 @@ const AddAWebhookURLForm: FC<IProps> = ({ onClose }) => {
       <Input
         placeholder="Enter URL"
         id="webhookUrl"
-        label="Webook URL"
+        label="Webhook URL"
         formData={formData.webhookUrl}
         handleChange={handleChange}
       />

@@ -25,7 +25,7 @@ const CreatePaymentLink: FC<IProps> = (props) => {
   const handleDialogClose = () => setIsDialogOpen(false);
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-[20px] border border-border bg-blue/5 py-10 text-base my-5">
+    <div className="my-5 flex w-full flex-col items-center justify-center gap-4 rounded-[20px] border border-border bg-blue/5 py-10 text-base">
       <Image
         className="self-center"
         src={globe}
@@ -65,7 +65,7 @@ const CreatePaymentLink: FC<IProps> = (props) => {
             <AlertDialogHeader className="w-full">
               <AlertDialogTitle>
                 <AlertDialogDescription>
-                  Create new payment page
+                  Add a Webhook URL{" "}
                 </AlertDialogDescription>
               </AlertDialogTitle>
             </AlertDialogHeader>
