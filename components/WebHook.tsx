@@ -1,128 +1,80 @@
 "use client";
 import React, { FC, useState } from "react";
-import Key from "../app/assets/globe.svg";
 import Image from "next/image";
-import Modal from 'react-modal';
+import add from "@/app/assets/add.svg";
+import cancel from "@/app/assets/cancel.svg";
+import globe from "@/app/assets/globe.svg";
 
-// interface IProps {
-//   apiKey: string;
-// }
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { AlertDialogDescription } from "@radix-ui/react-alert-dialog";
+import AddAWebhookURLForm from "./AddAWebhookURLForm";
 
-const WebHook = () => {
-  const [isCopied, setIsCopied] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [webHookURL, setWebHookURL] = useState("");
-  const webHookKey = "";
-//   const webHookKey = "www.basepay.com/WebhookUR.L_an..";
+interface IProps {}
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(webHookKey);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
+const CreatePaymentLink: FC<IProps> = (props) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-
-  const handleURLChange = (e) => {
-    setWebHookURL(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    // Handle webhook URL submission logic here
-    console.log("Webhook URL submitted:", webHookURL);
-    closeModal();
-  };
+  const handleDialogOpen = () => setIsDialogOpen(true);
+  const handleDialogClose = () => setIsDialogOpen(false);
 
   return (
-    <div className="mt-8 flex w-full justify-center rounded-3xl border p-10 text-center text-sm font-light text-black">
-      <div className="flex w-[80%] flex-col justify-center gap-4 align-middle">
-        <Image className="self-center" src={Key} alt="" />
-        {webHookKey ? (
-          <>
-            <p>
-              Your Webhook URL is ready! You can now start using it to plug into
-              other third party integrations
-            </p>
-            <div>
-              <div className="mt-8 flex w-full justify-between rounded-full border py-2 pl-10 text-sm font-bold text-black">
-                <input
-                  placeholder="api key"
-                  type="text"
-                  value={webHookKey}
-                  readOnly
-                />
-                <div className="flex gap-4 text-blue">
-                  <button
-                    className="rounded-full bg-[#3B72FF1A] px-4 py-2"
-                    onClick={handleCopy}
-                  >
-                    {isCopied ? "Copied!" : "Copy"}
-                  </button>
-                  <button
-                    className="rounded-full bg-[#3B72FF1A] px-4 py-2"
-                    onClick={handleCopy}
-                  >
-                    {isCopied ? "Copied!" : "Copy"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <p>
-              You don’t have a webhook URL yet. Create a new one and start using
-              it.
-            </p>
-            <div className="flex justify-center">
-              <div className="mt-8 flex w-full justify-center rounded-full border py-2 text-sm font-bold text-white bg-blue">
-                <button
-                  className="rounded-full px-4 py-2"
-                  onClick={openModal}
-                >
-                  + Add a webhook URL
-                </button>
-              </div>
-            </div>
-          </>
-        )}
-      </div>
+    <div className="flex w-full flex-col items-center justify-center gap-4 rounded-[20px] border border-border bg-blue/5 py-10 text-base my-5">
+      <Image
+        className="self-center"
+        src={globe}
+        alt="webhook icon"
+        width={160}
+        height={160}
+      />
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Add Webhook URL"
-        className="flex flex-col items-center justify-center bg-white rounded-lg p-10 translate-x-50 w-2/5 "
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center pl-56"
-      >
-        <h2 className="text-xl font-semibold mb-4">Add a webhook URL</h2>
-        <input
-          type="text"
-          placeholder="Enter URL"
-          value={webHookURL}
-          onChange={handleURLChange}
-          className="w-full py-4 px-4 mb-4 border rounded-full"
-        />
-        <button
-          onClick={handleSubmit}
-          className="w-full py-4 bg-blue text-white rounded-full text-sm "
-        >
-          Add webhook
-        </button>
-        
-      </Modal>
+      <p className="text-center font-medium">
+        You don’t have a webhook URL yet. Create a new <br /> one and start
+        using it.
+      </p>
+
+      <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <AlertDialogTrigger asChild>
+          <span
+            onClick={handleDialogOpen}
+            className="flex cursor-pointer items-center justify-center gap-2 text-balance rounded-full bg-blue px-6 py-3 text-base font-medium text-white"
+          >
+            <Image
+              src={add}
+              alt="create new"
+              className="h-4 w-4"
+              width={12}
+              height={12}
+            />
+            Add a new Webhook URL
+          </span>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <div className="flex w-full justify-between gap-3">
+            <AlertDialogCancel asChild>
+              <span onClick={handleDialogClose}>
+                <Image src={cancel} alt="cancel" width={32} height={32} />
+              </span>
+            </AlertDialogCancel>
+            <AlertDialogHeader className="w-full">
+              <AlertDialogTitle>
+                <AlertDialogDescription>
+                  Create new payment page
+                </AlertDialogDescription>
+              </AlertDialogTitle>
+            </AlertDialogHeader>
+          </div>
+          <AddAWebhookURLForm onClose={handleDialogClose} />
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
 
-export default WebHook;
+export default CreatePaymentLink;
