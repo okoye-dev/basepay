@@ -13,6 +13,7 @@ import logo from "@/app/assets/logo.png";
 import NavItem from "./NavItem";
 import Link from "next/link";
 import Image from "next/image";
+import SideNavCreateNewPaymentPage from "./SideNavCreateNewPaymentPage";
 
 interface IProps {
   navOpen: boolean;
@@ -56,9 +57,7 @@ const SideNav: FC<IProps> = ({ navOpen, toggleNav }: IProps) => {
         <span className="flex h-[2px] w-full bg-border"></span>
       </div>
 
-      <Button hasAddIcon={true} className="px-8 py-4">
-        New payment page
-      </Button>
+      <SideNavCreateNewPaymentPage />
 
       <div className="relative mt-6 rounded-3xl bg-gray p-6">
         <span

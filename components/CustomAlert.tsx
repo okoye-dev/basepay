@@ -15,7 +15,7 @@ const CustomAlert: FC<IProps> = ({ message, onClose }: IProps) => {
   }, [onClose]);
 
   return (
-    <div className="slide-in fixed left-1/3 top-0 transform rounded-lg bg-blue px-4 py-2 text-white shadow-lg">
+    <div className="slide-in bottom-24 fixed transform rounded-lg bg-blue px-4 py-2 text-white shadow-lg">
       {message}
     </div>
   );

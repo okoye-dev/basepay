@@ -1,13 +1,14 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC, ReactNode, useState } from "react";
 import Input from "./Input"; // Adjust the path as necessary
 import PaymentLinkCreated from "./PaymentLinkCreated";
 
 interface IProps {
   onClose: () => void;
+  trigger?: ReactNode;
 }
 
-const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
+const CreatePaymentLinkForm: FC<IProps> = ({ onClose, trigger }) => {
   const [formData, setFormData] = useState({
     pageName: "",
     pageDescription: "",
@@ -98,7 +99,7 @@ const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
         type="number"
         placeholder="Enter amount"
         id="amount"
-        label="Amount"
+        label="Amount (ETH)"
         formData={formData.amount}
         handleChange={handleChange}
       />

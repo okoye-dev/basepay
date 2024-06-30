@@ -27,8 +27,8 @@ const CopyLink: FC<IProps> = ({ link }: IProps) => {
   };
 
   return (
-    <div className="relative">
-      <div className="flex items-center justify-between gap-2 rounded-full border border-border px-2 py-[6px]">
+    <div className="relative flex justify-center items-center">
+      <div className="flex items-center justify-between gap-2 rounded-full border border-border px-2 py-[6px] max-w-sm">
         <span className="overflow-hidden text-ellipsis text-nowrap pl-2 text-base font-semibold">
           {link}
         </span>
