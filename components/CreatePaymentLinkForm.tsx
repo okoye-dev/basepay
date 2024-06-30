@@ -35,7 +35,45 @@ const CreatePaymentLinkForm: FC<IProps> = ({ onClose }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
-    handleDialogOpen();
+    createPaymentink();
+  };
+
+  const createPaymentink = async () => {
+    try {
+      // already authenticated username
+      const username =
+        "e4c0b812dd5bb5efbfbacb34322fa7b29d3723031f2ffc065067a3b3c2fd3a8f";
+      const password = "your-password";
+      const basicAuth = btoa(`${username}:${password}`);
+
+      const paymentLinkData = {
+        slug: formData.pageName,
+        amount: formData.amount,
+        description: formData.pageDescription,
+      };
+
+      const res = await fetch(
+        "http://localhost:3000/api/payment/createPaymentLink",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${basicAuth}`,
+          },
+          body: JSON.stringify(paymentLinkData),
+        },
+      );
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      handleDialogOpen();
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error("error posting: ", err);
+    }
   };
 
   return (

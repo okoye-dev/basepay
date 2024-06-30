@@ -1,3 +1,4 @@
+"use client";
 import React, { FC, useState } from "react";
 import ModalButton from "./ModalButton";
 import copy from "@/app/assets/copy-no-border.svg";

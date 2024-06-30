@@ -1,6 +1,7 @@
 export type LinkData = {
-  title: string;
+  slug: string;
   link: string;
   date: string;
   clicks: number;
+  createdAt: string;
 };

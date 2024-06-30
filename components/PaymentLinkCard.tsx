@@ -7,6 +7,7 @@ import ellipses from "@/app/assets/ellipses.svg";
 import visitLink from "@/app/assets/visit-link.svg";
 import { LinkData } from "@/types/types";
 import Link from "next/link";
+import { useFormatDate } from "@/hooks/useFormatDate";
 
 interface IProps {
   linkData: LinkData;
@@ -16,14 +17,11 @@ interface IProps {
 const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
   const icons = [share, copy, edit, ellipses, visitLink];
 
-  // Ensure the link is treated as an external link
-  const formattedLink =
-    linkData.link.startsWith("http://") || linkData.link.startsWith("https://")
-      ? linkData.link
-      : `https://${linkData.link}`;
-
   return (
-    <div className="flex w-full flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-black/10">
+    <div
+      key={index}
+      className="flex w-full max-w-md flex-col items-start justify-center gap-1 rounded-3xl border border-border p-3 transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-black/10"
+    >
       <span className="flex w-full items-center justify-start gap-2">
         {icons.map((icon, index) => (
           <span key={index}>
@@ -42,10 +40,10 @@ const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
         href={"/payment-link-page"}
         className="pt-1 text-xl font-medium duration-300 hover:text-blue"
       >
-        {linkData.title}
+        {linkData.slug}
       </Link>
       <Link
-        href={formattedLink}
+        href={"www.basepay.com/fakeLink/DefiHacks/hackatho-82663n268g2"}
         className="block w-full overflow-hidden text-ellipsis whitespace-nowrap pb-1 text-sm font-medium text-blue hover:underline"
         passHref
       >
@@ -53,7 +51,7 @@ const PaymentLinkCard: FC<IProps> = ({ linkData, index }: IProps) => {
       </Link>
       <div className="flex items-center justify-center gap-3 py-1">
         <p className="rounded-full bg-gray px-6 py-2 text-sm font-medium text-textGray">
-          {linkData.date}
+          {useFormatDate(linkData.createdAt)}
         </p>
         <p className="rounded-full bg-gray px-6 py-2 text-sm font-medium text-textGray">
           {linkData.clicks} Clicks

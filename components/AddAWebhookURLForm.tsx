@@ -5,9 +5,11 @@ import PaymentLinkCreated from "./PaymentLinkCreated";
 
 interface IProps {
   onClose: () => void;
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+  setData: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddAWebhookURLForm: FC<IProps> = ({ onClose }) => {
+const AddAWebhookURLForm: FC<IProps> = ({ onClose, setSuccess, setData }) => {
   const [formData, setFormData] = useState({
     webhookUrl: "",
   });
@@ -46,6 +48,8 @@ const AddAWebhookURLForm: FC<IProps> = ({ onClose }) => {
       const responseData = await res.json();
 
       console.log("res: ", responseData);
+      setSuccess(true);
+      setData(formData.webhookUrl);
     } catch (err) {
       console.error("error posting: ", err);
     }
